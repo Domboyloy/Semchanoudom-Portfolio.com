@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEM CHANOUDOM | Personal Profile</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="style.scss">
+  <style>
+    /* Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+ html {
+  scroll-behavior: smooth;
+}
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: linear-gradient(135deg, #ece9e6, #ffffff);
+    }
+
+    header {
+      background: linear-gradient(135deg, #4a90e2, #357abd);
+      color: white;
+      padding: 1em 0;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 12px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    nav ul li a:hover {
+      background-color: white;
+      color: #4a90e2;
+      border-radius: 5px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    .profile {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .profile img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #4a90e2;
+      margin-bottom: 15px;
+      transition: transform 0.3s;
+    }
+
+    .profile img:hover {
+      transform: scale(1.05);
+    }
+
+    .profile h1 {
+      font-size: 2.5em;
+      color: #4a90e2;
+      margin-bottom: 10px;
+    }
+
+    .profile p {
+      font-size: 1.2em;
+      color: #666;
+    }
+
+    #about {
+      padding: 30px;
+      background-color: #f9f9f9;
+      border-radius: 15px;
+      margin-bottom: 30px;
+    }
+
+    #about h2 {
+      text-align: center;
+      color: #4a90e2;
+      margin-bottom: 20px;
+    }
+
+    .about-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .about-photo {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #4a90e2;
+    }
+
+    .about-text {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .about-text p {
+      margin-bottom: 15px;
+      font-size: 1.1em;
+      color: #555;
+    }
+
+    section h2 {
+      color: #4a90e2;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .hobbies ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding-left: 0;
+    }
+
+    .hobbies ul li {
+      background-color: #4a90e2;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 20px;
+      transition: background 0.3s;
+    }
+
+    .hobbies ul li:hover {
+      background-color: #357abd;
+    }
+
+    .contact p {
+      margin: 5px 0;
+      font-size: 1.1em;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #4a90e2;
+      color: white;
+      margin-top: 30px;
+    }
+ #skills .skill-box {
+    background-color: #f9f9f9;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(74, 144, 226, 0.15);
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+  }
+
+  #skills .skill-box:hover {
+    background-color: #4a90e2;
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(74, 144, 226, 0.4);
+  }
+
+  #skills .skill-box:hover h3,
+  #skills .skill-box:hover p {
+    color: white;
+  }
+
+  #skills .skill-box img {
+    margin-bottom: 15px;
+    transition: filter 0.3s ease;
+  }
+  .section {
+  padding: 50px 20px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5em;
+  color: #4a90e2;
+  margin-bottom: 20px;
+}
+
+.skills__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.skills__subtitle {
+  font-size: 1.8em;
+  margin-bottom: 10px;
+  color: #357abd;
+}
+
+.skills__text {
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.skills__data {
+  margin-bottom: 15px;
+}
+
+.skills__names {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.skills__icon {
+  font-size: 1.5em;
+  color: #4a90e2;
+  margin-right: 10px;
+}
+
+.skills__name {
+  font-weight: bold;
+}
+
+.skills__bar {
+  height: 10px;
+  background-color: #d3d3d3;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 5px;
+}
+
+.skills__bar::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: #4a90e2;
+  transition: width 1s ease-in-out;
+}
+
+.skills__html::after { width: 95%; }
+.skills__css::after { width: 85%; }
+.skills__js::after { width: 65%; }
+.skills__ux::after { width: 85%; }
+
+.skills__percentage {
+  font-weight: bold;
+  color: #4a90e2;
+}
+
+.skills__img {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skills__img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .skills__container {
+    grid-template-columns: 1fr;
+  }
+}
+#portfolio {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    border-radius: 15px;
+    max-width: 1100px;
+    margin: 40px auto;
+  }
+
+  #portfolio h2 {
+    text-align: center;
+    color: #4a90e2;
+    margin-bottom: 40px;
+    font-size: 2.5em;
+  }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+  }
+
+  .portfolio-item {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(74, 144, 226, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .portfolio-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(74, 144, 226, 0.3);
+  }
+
+  .portfolio-item img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+  }
+
+  .portfolio-item h3 {
+    color: #4a90e2;
+    margin-bottom: 10px;
+  }
+
+  .portfolio-item p {
+    color: #555;
+    margin-bottom: 20px;
+  }
+
+  .btn {
+    text-decoration: none;
+    color: white;
+    background-color: #4a90e2;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn:hover {
+    background-color: #357abd;
+  }
+.contact-container {
+    max-width: 400px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+#formMessage {
+    text-align: center;
+    margin-top: 10px;
+    color: green;
+}
+
+/* Social Links Styling */
+.social-links {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.social-links a {
+    margin: 0 10px;
+    color: #333;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    color: #007BFF;
+}
+.social-links a img {
+    width: 30px;
+    margin: 0 10px;
+    transition: transform 0.3s ease;
+}
+
+.social-links a img:hover {
+    transform: scale(1.2);
+}
+  /* Responsive */
+  @media (max-width: 480px) {
+    #portfolio h2 {
+      font-size: 2em;
+    }
+  }
+  
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+      }
+
+      .profile img {
+        width: 140px;
+        height: 140px;
+      }
+
+      .about-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .about-photo {
+        width: 180px;
+        height: 180px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .profile h1 {
+        font-size: 1.8em;
+      }
+
+      .profile p, .about-text p {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container" id="home">
+    <!-- Profile Section -->
+    <section class="profile">
+      <img src="./sea.jpg" alt="Profile Photo">
+      <h1>SEM CHANOUDOM</h1>
+      <p>Hello! I’m a passionate web developer who loves creating user-friendly websites and learning new technologies.</p>
+      <div class="hobbies">
+        <h3>Hobbies & Interests:</h3>
+        <ul>
+            <div>
+                <img src="./temple.jpg" alt="">
+                <li>🌍 Traveling</li>
+            </div>
+          
+         <div>
+            <img src="./reading.jpg" alt="">
+            <li>📚 Reading</li>
+         </div>
+         <div>
+            <img src="./music.jpg" alt="">
+              <li>🎵 Music</li>
+         </div>
+          
+        <div>
+            <img src="./gaming.jpeg" alt="">
+             <li>🎮 Gaming</li>
+        </div>
+         
+        </ul>
+      </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about">
+      <h2>About Me</h2>
+      <div class="about-content">
+        <img src="./kingdom.jpg" alt="About Photo" class="about-photo">
+        <div class="about-text">
+          <p>Hello! My name is <strong>SEM CHANOUDOM</strong>, and I’m a passionate web developer with a love for creating clean, functional, and user-friendly websites. With a background in computer science and a knack for design, I enjoy bringing ideas to life through code.</p>
+          <p>I specialize in front-end development, working with HTML, CSS, JavaScript, and frameworks like React to build engaging web experiences. I’m also interested in back-end technologies, learning new languages, and collaborating on exciting projects.</p>
+          <p>In my free time, you can find me exploring new places, reading books, playing video games, and enjoying good music. I’m always eager to learn new skills and take on creative challenges!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+      <!-- Skills Section -->
+<!-- Skills Section -->
+<section id="skills">
+  <h2 style="text-align:center; color:#4a90e2; margin-bottom: 30px;">My Skills</h2>
+  <div style="max-width: 900px; margin: auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; text-align: center;">
+    
+    <div class="skill-box">
+      <img src="https://cdn-icons-png.flaticon.com/512/226/226777.png" alt="Programming" width="60">
+      <h3>Programming Languages</h3>
+      <p>C, C++, Java, HTML, CSS, JavaScript (basic)</p>
+    </div>
+    
+    <div class="skill-box">
+      <img src="https://cdn-icons-png.flaticon.com/512/732/732212.png" alt="Web Development" width="60">
+      <h3>Web Development</h3>
+      <p>HTML, CSS, JavaScript, Responsive Design, Basic Front-End Frameworks</p>
+    </div>
+    
+    <div class="skill-box">
+      <img src="https://cdn-icons-png.flaticon.com/512/3105/3105527.png" alt="Cybersecurity & Networking" width="60">
+      <h3>Cybersecurity & Networking</h3>
+      <p>Network Management, Cybersecurity Fundamentals, Server Control</p>
+    </div>
+    
+    <div class="skill-box">
+      <img src="https://cdn-icons-png.flaticon.com/512/3039/3039437.png" alt="IT Support" width="60">
+      <h3>IT Support</h3>
+      <p>Troubleshooting, Hardware & Software Support, System Maintenance</p>
+    </div>
+    
+    <div class="skill-box">
+      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Design" width="60">
+      <h3>Design Skills</h3>
+      <p>Poster & Visual Design, Basic Graphic Tools</p>
+    </div>
+    
+    <div class="skill-box">
+      <img src="https://cdn-icons-png.flaticon.com/512/2910/2910768.png" alt="Soft Skills" width="60">
+      <h3>Soft Skills</h3>
+      <p>Problem Solving, Adaptability, Collaboration, Work Ethic</p>
+    </div>
+
+  </div>
+</section>
+<section class="skills section" id="skills">
+       
+
+        <div class="skills__container bd-grid">
+          <div>
+            <h2 class="skills__subtitle">Profesional Skills</h2>
+            <p class="skills__text">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit
+              optio id vero amet, alias architecto consectetur error eum eaque
+              sit.
+            </p>
+            <div class="skills__data">
+              <div class="skills__names">
+                <i class="bx bxl-html5 skills__icon"></i>
+                <span class="skills__name">HTML5</span>
+              </div>
+              <div class="skills__bar skills__html"></div>
+              <div>
+                <span class="skills__percentage">95%</span>
+              </div>
+            </div>
+            <div class="skills__data">
+              <div class="skills__names">
+                <i class="bx bxl-css3 skills__icon"></i>
+                <span class="skills__name">CSS3</span>
+              </div>
+              <div class="skills__bar skills__css"></div>
+              <div>
+                <span class="skills__percentage">85%</span>
+              </div>
+            </div>
+            <div class="skills__data">
+              <div class="skills__names">
+                <i class="bx bxl-javascript skills__icon"></i>
+                <span class="skills__name">JAVASCRIPT</span>
+              </div>
+              <div class="skills__bar skills__js"></div>
+              <div>
+                <span class="skills__percentage">65%</span>
+              </div>
+            </div>
+            <div class="skills__data">
+              <div class="skills__names">
+                <i class="bx bxs-paint skills__icon"></i>
+                <span class="skills__name">UX/UI</span>
+              </div>
+              <div class="skills__bar skills__ux"></div>
+              <div>
+                <span class="skills__percentage">85%</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <img src="./skil.jpg" alt="" class="skills__img" />
+          </div>
+        </div>
+      </section>
+
+
+
+    <section id="portfolio">
+  <h2>My Portfolio</h2>
+  <div class="portfolio-grid">
+    <div class="portfolio-item">
+      <img src="./Capture.PNG" alt="Project 1 Screenshot">
+      <h3>ZD-STOR</h3>
+      <p>A stor for sell a lot of product you can buy any one you want to buy.</p>
+      <a href="https://domboyloy.github.io/ZD.STOR/index.html#" class="btn" target="_blank" rel="noopener">View Project</a>
+    </div>
+    <div class="portfolio-item">
+      <img src="./Capture1.PNG" alt="Project 2 Screenshot">
+      <h3>ZD-STOR2</h3>
+      <p>A A stor for sell a lot of product you can buy any one you want to buy creat by Mr.Ssem chanoudom.</p>
+      <a href="https://domboyloy.github.io/www.zd-stor.com/" class="btn" target="_blank" rel="noopener">View Project</a>
+    </div>
+    <div class="portfolio-item">
+      <img src="./Capture3.PNG" alt="Project 3 Screenshot">
+      <h3>Snake Game</h3>
+      <p>The classic Snake Game is back with many exciting new improvements and is completely free-to-play online. Let's see, how patient are you? </p>
+      <a href="https://domboyloy.github.io/snake-game/" class="btn" target="_blank" rel="noopener">View Project</a>
+    </div>
+  </div>
+</section
+
+  <div class="contact-container">
+        <h2>Contact Us</h2>
+        <form id="contactForm">
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+            <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        <p id="formMessage"></p>
+
+        <!-- Social Media Links -->
+      <div class="social-links">
+    <a href="https://www.facebook.com/sem.chanoudom.5" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/145/145802.png" alt="Facebook" width="30">
+    </a>
+    <a href="https://t.me/Semchanoudom" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" width="30">
+    </a>
+</div>
+    </div>
+
+    <script src="script.js"></script>
+  </main>
+
+  <footer>
+    &copy; 2025 SEM CHANOUDOM. All Rights Reserved.
+  </footer>
+
+</body>
+<script type="text/JavaScript">
+  document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault(); // Prevent form from submitting normally
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
+    const formMessage = document.getElementById("formMessage");
+
+    if (name === "" || email === "" || message === "") {
+        formMessage.style.color = "red";
+        formMessage.textContent = "Please fill out all fields.";
+        return;
+    }
+
+    // Basic email format validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        formMessage.style.color = "red";
+        formMessage.textContent = "Please enter a valid email.";
+        return;
+    }
+
+    // Simulate sending message
+    formMessage.style.color = "green";
+    formMessage.textContent = "Thank you for your message!";
+    
+    // Optional: Reset the form
+    document.getElementById("contactForm").reset();
+});
+
+
+</script>
+</html>
